@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lasbite/register.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -46,6 +47,15 @@ class _SignInScreenState extends State<SignInScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            const Align(
+              alignment: AlignmentDirectional.centerStart,
+              child: Text(
+                'Username',
+                style: TextStyle(
+                  fontSize: 14,
+                ),
+              ),
+            ),
             TextFormField(
               decoration: const InputDecoration(
                 labelText: 'Email/Phone Number',
@@ -53,6 +63,15 @@ class _SignInScreenState extends State<SignInScreen> {
               ),
             ),
             const SizedBox(height: 20),
+            const Align(
+              alignment: AlignmentDirectional.centerStart,
+              child: Text(
+                'Password',
+                style: TextStyle(
+                  fontSize: 14,
+                ),
+              ),
+            ),
             TextFormField(
               obscureText: !_passwordVisible,
               decoration: InputDecoration(
@@ -176,6 +195,11 @@ class _SignInScreenState extends State<SignInScreen> {
             GestureDetector(
               onTap: () {
                 // Handle registration
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const RegistrationPage()),
+                );
               },
               child: RichText(
                 text: const TextSpan(

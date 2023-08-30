@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lasbite/login.dart';
+import 'package:lasbite/register.dart';
 
 void main() {
   runApp(const MyApp());
@@ -176,6 +177,12 @@ class HeroScreen extends StatelessWidget {
                           GestureDetector(
                             onTap: () {
                               // Handle registration
+                              Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const RegistrationPage()),
+                                  );
                             },
                             child: RichText(
                               text: const TextSpan(
