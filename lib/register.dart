@@ -37,7 +37,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
             AppBar(
               backgroundColor: Colors.transparent,
               elevation: 0,
-              title: const Column(
+              title:  Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
