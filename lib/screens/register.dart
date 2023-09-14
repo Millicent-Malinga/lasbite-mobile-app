@@ -1,5 +1,11 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
-import 'package:lasbite/login.dart';
+import 'package:lasbite/screens/dashboard.dart';
+import 'package:lasbite/screens/login.dart';
+
+import '../resources/auth_methods.dart';
+import '../utils/utils.dart';
 
 void main() {
   runApp(const MaterialApp(
@@ -18,6 +24,59 @@ class RegistrationPage extends StatefulWidget {
 class _RegistrationPageState extends State<RegistrationPage> {
   bool _passwordVisible = false;
   bool _confirmPasswordVisible = false;
+   final TextEditingController _fullnameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
+  bool _isLoading = false;
+
+  final spacer = SizedBox(
+    height: 16,
+  );
+
+  void SignUpUser() async {
+    setState(() {
+      _isLoading = true;
+    });
+    String res = await AuthMethods().signUpUserwithEmail(
+        email: _emailController.text,
+        password: _passwordController.text,
+        confirm: _confirmPasswordController.text,
+        fullname: _fullnameController.text,
+        );
+     setState(() {
+      _isLoading = true;
+    });
+    if (res != 'success') {
+      setState(() {
+      _isLoading = false;
+      showSnackBar(res, context);
+
+    });
+       
+      // handle errors
+    } else {
+      //
+        setState(() {
+      _isLoading = false;
+    });
+     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => HomeScreen()
+                ));
+
+    
+    }
+  }
+
+  @override
+  void dispose() {
+    //implement dispose
+    super.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    _confirmPasswordController.dispose();
+    _fullnameController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -135,6 +194,15 @@ class _RegistrationPageState extends State<RegistrationPage> {
               ),
             ),
             TextFormField(
+              controller: _confirmPasswordController,
+              validator: (confirm){
+                              if(confirm.isEmpty)
+                                   return 'Empty';
+                              if(val != _passwordController.text)
+                                   return 'Not Match'
+                              return null;
+                              }
+                     ),
               obscureText: !_confirmPasswordVisible,
               decoration: InputDecoration(
                 labelText: 'Confirm Password',
@@ -157,6 +225,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
             ElevatedButton(
               onPressed: () {
                 // Handle registration logic
+
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFF008000),

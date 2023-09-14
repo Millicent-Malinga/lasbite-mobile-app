@@ -1,5 +1,10 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
-import 'package:lasbite/register.dart';
+import 'package:lasbite/screens/register.dart';
+
+import '../resources/auth_methods.dart';
+import '../utils/utils.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -10,7 +15,43 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
+   final TextEditingController _fullnameController = TextEditingController();
+  final TextEditingController _bioController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   bool _passwordVisible = false;
+
+
+   final spacer = SizedBox(height: 16,);
+  bool _isLoading = false;
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+  }
+
+  void LogInUser() async {
+    setState(() {
+      _isLoading = true;
+    });
+    String res = await AuthMethods().LoginUserWithEmail(
+        email: _emailController.text, password: _passwordController.text);
+   
+    if (res == 'User signed in!') {
+      // login user
+      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const RegistrationPage(
+                )));
+    } else {
+      //handle errors
+       setState(() {
+      _isLoading = false;
+    });
+      showSnackBar(res, context);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,6 +98,7 @@ class _SignInScreenState extends State<SignInScreen> {
               ),
             ),
             TextFormField(
+              controller: _emailController,
               decoration: const InputDecoration(
                 labelText: 'Email/Phone Number',
                 border: OutlineInputBorder(),
@@ -73,9 +115,11 @@ class _SignInScreenState extends State<SignInScreen> {
               ),
             ),
             TextFormField(
+              controller: _passwordController,
               obscureText: !_passwordVisible,
               decoration: InputDecoration(
                 labelText: 'Password',
+                
                 border: const OutlineInputBorder(),
                 suffixIcon: GestureDetector(
                   onTap: () {
@@ -107,9 +151,7 @@ class _SignInScreenState extends State<SignInScreen> {
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () {
-                // Handle sign in
-              },
+              onPressed: LogInUser,
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFF008000),
                 padding:
@@ -138,59 +180,59 @@ class _SignInScreenState extends State<SignInScreen> {
               ],
             ),
             const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    // Handle login with Facebook
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
-                    foregroundColor: Colors.black,
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 14,
-                      horizontal: 24,
-                    ),
-                  ),
-                  child: Row(
-                    children: [
-                      Image.asset(
-                        'assets/images/fb.jpg',
-                        height: 20,
-                        width: 20,
-                      ),
-                      const SizedBox(width: 10),
-                      const Text('Facebook'),
-                    ],
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    // Handle login with Google
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
-                    foregroundColor: Colors.black,
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 14,
-                      horizontal: 24,
-                    ),
-                  ),
-                  child: Row(
-                    children: [
-                      Image.asset(
-                        'assets/images/google.jpg',
-                        height: 20,
-                        width: 20,
-                      ),
-                      const SizedBox(width: 10),
-                      const Text('Google'),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //   children: [
+            //     ElevatedButton(
+            //       onPressed: () {
+            //         // Handle login with Facebook
+            //       },
+            //       style: ElevatedButton.styleFrom(
+            //         backgroundColor: Colors.white,
+            //         foregroundColor: Colors.black,
+            //         padding: const EdgeInsets.symmetric(
+            //           vertical: 14,
+            //           horizontal: 24,
+            //         ),
+            //       ),
+            //       child: Row(
+            //         children: [
+            //           Image.asset(
+            //             'assets/images/fb.jpg',
+            //             height: 20,
+            //             width: 20,
+            //           ),
+            //           const SizedBox(width: 10),
+            //           const Text('Facebook'),
+            //         ],
+            //       ),
+            //     ),
+            //     ElevatedButton(
+            //       onPressed: () {
+            //         // Handle login with Google
+            //       },
+            //       style: ElevatedButton.styleFrom(
+            //         backgroundColor: Colors.white,
+            //         foregroundColor: Colors.black,
+            //         padding: const EdgeInsets.symmetric(
+            //           vertical: 14,
+            //           horizontal: 24,
+            //         ),
+            //       ),
+            //       child: Row(
+            //         children: [
+            //           Image.asset(
+            //             'assets/images/google.jpg',
+            //             height: 20,
+            //             width: 20,
+            //           ),
+            //           const SizedBox(width: 10),
+            //           const Text('Google'),
+            //         ],
+            //       ),
+            //     ),
+            //   ],
+            // ),
             const SizedBox(height: 50),
             GestureDetector(
               onTap: () {

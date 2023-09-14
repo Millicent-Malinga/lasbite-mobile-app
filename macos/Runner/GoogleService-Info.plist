@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>463285908927-m2u4crsf1468bgfhsu619vh24r365pnp.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.463285908927-m2u4crsf1468bgfhsu619vh24r365pnp</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>463285908927-6ptk22vog4h1975u0rlgv9n4r8u97pij.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDdwy0mie5AwkBPTgQ6H4ioLK_3Ejw-HSQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>463285908927</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.lasbite.RunnerTests</string>
+	<key>PROJECT_ID</key>
+	<string>lasbite-db994</string>
+	<key>STORAGE_BUCKET</key>
+	<string>lasbite-db994.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:463285908927:ios:c9b27412a91f7997dfdd0a</string>
+</dict>
+</plist>

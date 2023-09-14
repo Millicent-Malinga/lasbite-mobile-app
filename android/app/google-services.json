@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "463285908927",
+    "project_id": "lasbite-db994",
+    "storage_bucket": "lasbite-db994.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:463285908927:android:082cf827614f45abdfdd0a",
+        "android_client_info": {
+          "package_name": "com.example.lasbite"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "463285908927-6ptk22vog4h1975u0rlgv9n4r8u97pij.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.lasbite",
+            "certificate_hash": "5d1399ff7c752229a8a5f825c6c34ae0fc487aa6"
+          }
+        },
+        {
+          "client_id": "463285908927-cmumjodguugnkugf60pfgbtjgpgo8vur.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCr0Yqt_gXRRvYmj8DgYnIYRG2IHY7lOpc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "463285908927-0iklldejmuqj84ud0blfv2l9l8m9ft1i.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "463285908927-1vaqvaqbk42aticb0v814dhkmm10i5c7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.lasbite"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

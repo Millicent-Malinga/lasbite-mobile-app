@@ -1,25 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:lasbite/login.dart';
-import 'package:lasbite/register.dart';
+import 'package:lasbite/screens/login.dart';
+import 'package:lasbite/screens/register.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Lasbite',
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-      ),
-      home: const HeroScreen(),
-    );
-  }
-}
 
 class HeroScreen extends StatelessWidget {
   const HeroScreen({Key? key}) : super(key: key);
@@ -105,7 +87,7 @@ class HeroScreen extends StatelessWidget {
                             ],
                           ),
                           const SizedBox(height: 20),
-                           Row(
+                          Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               Divider(
@@ -178,11 +160,11 @@ class HeroScreen extends StatelessWidget {
                             onTap: () {
                               // Handle registration
                               Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            const RegistrationPage()),
-                                  );
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const RegistrationPage()),
+                              );
                             },
                             child: RichText(
                               text: const TextSpan(
