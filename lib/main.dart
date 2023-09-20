@@ -8,7 +8,7 @@ import 'package:lasbite/screens/login.dart';
 import 'package:lasbite/screens/register.dart';
 import 'dart:ui';
 import 'package:lasbite/firebase_options.dart';
-import 'hero.dart';
+import 'screens/hero.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

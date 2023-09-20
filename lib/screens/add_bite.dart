@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:home.dart';
+import 'package:lasbite/screens/dashboard.dart';
 
 
 
@@ -88,7 +88,7 @@ class _AddABitePageState extends State<AddABitePage> {
           onPressed: () {
              Navigator.of(context).pushReplacement(
               MaterialPageRoute(
-                builder: (context) => HomePage(),
+                builder: (context) => HomeScreen(),
               ),
             );
           },
