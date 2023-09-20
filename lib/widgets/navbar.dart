@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import '../add_bite.dart';
-import '../home.dart';
+import 'package:lasbite/screens/add_bite.dart';
+import 'package:lasbite/screens/dashboard.dart';
+
 
 
 class NavBar extends StatefulWidget {
@@ -14,7 +15,7 @@ class _NavBarState extends State<NavBar> {
   int _currentIndex = 0;
 
   final List<Widget> _pages = const [
-    HomePageContent(), // Homepage 
+    HomeScreen(), // Homepage 
     AddABitePage(), // AddBitePage
     // Add message page and Profile
   ];
