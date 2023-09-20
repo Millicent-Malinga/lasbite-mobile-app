@@ -1,5 +1,4 @@
 import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
 import 'package:lasbite/screens/dashboard.dart';
 import 'package:lasbite/screens/login.dart';
@@ -196,10 +195,10 @@ class _RegistrationPageState extends State<RegistrationPage> {
             TextFormField(
               controller: _confirmPasswordController,
               validator: (confirm){
-                              if(confirm.isEmpty)
+                              if(confirm!.isEmpty)
                                    return 'Empty';
                               if(val != _passwordController.text)
-                                   return 'Not Match'
+                                   return 'Not Match';
                               return null;
                               }
                      ),
@@ -221,7 +220,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 ),
               ),
             ),
-            const SizedBox(height: 30),
+            SizedBox (height: 20),
             ElevatedButton(
               onPressed: () {
                 // Handle registration logic
